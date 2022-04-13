@@ -1,15 +1,14 @@
-console.log("Hello js")
-
 const express = require('express')
 const bodyParser= require('body-parser')
+const path = require('path')
 const cors = require('cors')
 const morgan = require('morgan')
-const mongoResult = require('../src/database/models/covid19Model')
-
 
 const app = express()
 app.use(morgan('combine'))
 app.use(bodyParser.json())
+app.use(express.static(path.join(dirname,'../../test-app/dist/')))
+
 app.use(cors())
 app.get('/status',(req,res)=>{
     res.send({
@@ -17,20 +16,18 @@ app.get('/status',(req,res)=>{
     })
 })
 
-app.post('/register', (req,res) => {
+app.get('/register', (req,res) => {
 
     res.send(
         {
-            message: `Your user is registered ! have fun ${req.body.email}`
+            message: 'Your user is registered ! have fun' 
         }
     )
 })
 
-app.get('/covid_data', async (req,res) => {
-     const dataCovid = await mongoResult.find({})
-     
-    //  console.log(dataCovid)
-    //  console.log(typeof(dataCovid))
-     res.json(dataCovid)
-})
-app.listen(process.env.PORT || 8082,'127.0.0.1')
+app.get('*', (req,res) => {
+    console.log(path.join(__dirname+'../../test-app/dist/index.html'))
+    res.sendFile(path.join(__dirname+'../../test-app/dist/index.html'));
+  })
+
+app.listen(process.env.PORT || 8082,'0.0.0.0')
