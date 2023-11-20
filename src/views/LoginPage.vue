@@ -52,13 +52,14 @@
     <div style="width: 150px; overflow: auto">
       <canvas width="200" style="border: 1px solid #ff0000"></canvas>
     </div>
-    <iframe
+    <!-- <iframe
       src="https://docs.google.com/viewer?url=http://www.africau.edu/images/default/sample.pdf&embedded=true"
       style="position: absolute; width: 100%; height: 100%; border: none"
-    ></iframe>
+    ></iframe> -->
   </div>
-  <div>
+  <div v-bind:class="activeVar">
     <form>
+      <br />
       <input list="fruits" name="fruit" />
       <datalist id="fruits">
         <option value="apple"></option>
@@ -67,10 +68,10 @@
         <option value="banana"></option>
         <option value="pear"></option>
       </datalist>
-      <input type="submit" />
+      <input type="submit" @click.prevent="ChangeCss()" />
     </form>
   </div>
-  <div>
+  <!-- <div>
     <video
       src="https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_640_3MG.mp4"
       controls
@@ -79,7 +80,7 @@
     <button id="1x">1x</button>
     <button id="15x">1.5x</button>
     <button id="2x">2x</button>
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -88,7 +89,7 @@ import axios from "axios";
 const userNameData = ref("");
 const password = ref("");
 const ResStore = ref("");
-
+const activeVar = ref("active");
 async function GetData() {
   await axios
     .get("https://jsonplaceholder.typicode.com/todos/1")
@@ -99,5 +100,21 @@ async function GetData() {
       console.log(err);
     });
 }
+const ChangeCss = () => {
+  if (activeVar.value == "Change") {
+    activeVar.value = "activeVar";
+  } else {
+    activeVar.value = "Change";
+  }
+};
 </script>
-
+<style scoped>
+.active {
+  background-color: cornflowerblue;
+  font-style: italic;
+  height: 30em;
+}
+.Change {
+  background-color: azure;
+}
+</style>
