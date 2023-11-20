@@ -1,0 +1,13 @@
+https://vuejs-course.com/blog/best-practices-for-testing-vue-3-components
+https://www.digitalocean.com/community/tutorials/vuejs-testing-vue-with-jest
+https://nosleepjavascript.com/
+https://github.com/KhushbooGoel01/Python_Interview_prepration
+https://www.youtube.com/channel/UCASCugw248rPWsUT2Uoh6YA/videos
+https://github.com/splunklearners
+https://codesource.io/build-a-crud-application-vue-and-django/
+https://codesource.io/create-a-crud-application-using-vue-node-and-mongodb/
+https://codesource.io/topics/web-mobile/react/
+https://github.com/MicrosoftLearning/deploy-and-manage-containers-with-azure-kubernetes-service
+https://morioh.com/a/77b34ddcd183/creating-a-restful-web-api-with-nodejs-and-expressjs-from-scratch
+https://bobcares.com/blog/generate-objectid-mongodb/
+https://www.freecodecamp.org/news/how-to-unit-test-your-first-vue-js-component-14db6e1e360d/
